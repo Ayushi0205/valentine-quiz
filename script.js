@@ -449,7 +449,11 @@
     var dooronAudio = document.getElementById('dooron-audio');
     if (dooronAudio) {
       dooronAudio.currentTime = 0;
-      dooronAudio.play().catch(function () {});
+      dooronAudio.load();
+      var playPromise = dooronAudio.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function () {});
+      }
     }
     if (typeof confetti === 'function') {
       var colors = ['#a63d2e', '#f5ebe0', '#c97b6b', '#2d1810'];

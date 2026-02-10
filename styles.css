@@ -618,6 +618,30 @@ body {
   margin: 0 0 1rem;
 }
 
+.reveal-health {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin: 1.5rem 0 0.75rem;
+  max-width: 32em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal-health-gif-wrap {
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+
+.reveal-health-gif {
+  width: min(200px, 50vw);
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: block;
+  margin: 0 auto;
+}
+
 .reveal-signoff {
   font-family: var(--font-display);
   font-size: 1.25rem;
