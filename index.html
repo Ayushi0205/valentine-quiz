@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One important survey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Landing -->
+  <section id="landing" class="screen active">
+    <p class="landing-tagline">One quiz. One dinner. Your move.</p>
+    <p class="landing-sub">Click only if you're ready for questions you might get wrong. (You'll still be fed because you have a sweet wife 🙂)</p>
+    <button type="button" class="cta" id="start-btn">Begin</button>
+  </section>
+
+  <!-- Hook: tagline + photos -->
+  <section id="hook" class="screen">
+    <p class="hook-tagline">Remember us? Good. Now pass the test.</p>
+    <div class="hook-photos">
+      <img src="IMG_2243.jpeg" alt="Us" class="hook-photo">
+    </div>
+    <button type="button" class="cta" id="start-quiz-btn">Start the quiz</button>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quiz" class="screen">
+    <div class="quiz-card">
+      <p class="quiz-score" id="quiz-score" aria-live="polite">Score: 0 / 5</p>
+      <p class="quiz-intro">Five questions. One dinner. Prove you remember us. (Wrong answers still get you fed—I've got options.)</p>
+      <div id="quiz-content">
+        <!-- Q1: Favourite colour (easy) -->
+        <div id="q1" class="question-block">
+          <p class="question-text">What is my favourite colour?</p>
+          <div class="options" role="group" aria-label="Choose one">
+            <button type="button" class="option" data-wrong="black">Black</button>
+            <button type="button" class="option" data-wrong="white">White</button>
+            <button type="button" class="option" data-correct="true">Brown</button>
+            <button type="button" class="option" data-wrong="pink">Pink</button>
+          </div>
+          <p id="q1-feedback" class="feedback" aria-live="polite"></p>
+          <div class="lifelines" id="q1-lifelines">
+            <button type="button" class="lifeline" data-lifeline="phone">Phone a Friend</button>
+            <button type="button" class="lifeline" data-lifeline="audience">Ask the Audience</button>
+          </div>
+        </div>
+
+        <!-- Q2: Pasta place (text input) -->
+        <div id="q2" class="question-block hidden">
+          <p class="question-text">What was the place in our initial dates when we had very good pasta?</p>
+          <div class="q1-input-wrap">
+            <input type="text" id="q2-answer" placeholder="Type your answer..." autocomplete="off">
+            <button type="button" class="btn-submit" id="q2-submit">Lock kiya?</button>
+          </div>
+          <p id="q2-feedback" class="feedback" aria-live="polite"></p>
+          <div class="lifelines" id="q2-lifelines">
+            <button type="button" class="lifeline" data-lifeline="phone">Phone a Friend</button>
+            <button type="button" class="lifeline" data-lifeline="hint">Hint</button>
+          </div>
+          <div id="q2-hint" class="hint-box hidden">Pool view. Fancy pasta. I was wearing a top so pale, a ghost would've said 'twinsies.' The place? Italian name. Sounds like 'I love' in a hurry.</div>
+        </div>
+
+        <!-- Q3: Multiple choice -->
+        <div id="q3" class="question-block hidden">
+          <p class="question-text">What was the first thing you gave me?</p>
+          <div class="options" role="group" aria-label="Choose one">
+            <button type="button" class="option" data-wrong="chocolates">Chocolates</button>
+            <button type="button" class="option" data-correct="true">Hug</button>
+            <button type="button" class="option" data-wrong="kiss">Kiss</button>
+            <button type="button" class="option" data-taunt="true">Taunt</button>
+          </div>
+          <div id="q3-kiss-meme-wrap" class="q3-meme-wrap hidden">
+            <video id="q3-kiss-meme-video" class="q3-meme-gif" controls playsinline preload="metadata" aria-label="Ruko zara Sabar karo meme">
+              <source src="ruko-zara-meme.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <img id="q3-kiss-meme-img" src="https://media1.tenor.com/m/iSedznQcBR4AAAAC/hindustani-bhau-ruko-zara.gif" alt="Ruko zara Sabar karo meme" class="q3-meme-gif hidden" role="presentation">
+          </div>
+          <p id="q3-feedback" class="feedback" aria-live="polite"></p>
+          <div class="lifelines" id="q3-lifelines">
+            <button type="button" class="lifeline" data-lifeline="phone">Phone a Friend</button>
+            <button type="button" class="lifeline" data-lifeline="audience">Ask the Audience</button>
+          </div>
+        </div>
+
+        <!-- Q4: Multiple choice + hint -->
+        <div id="q4" class="question-block hidden">
+          <p class="question-text">What was the first sweet gesture that felt thoughtful?</p>
+          <div class="options" role="group" aria-label="Choose one">
+            <button type="button" class="option" data-wrong="jacket">Keeping a jacket for me in the car</button>
+            <button type="button" class="option" data-correct="true">Getting something I believed in</button>
+            <button type="button" class="option" data-wrong="scarf">Keeping my scarf in your car</button>
+            <button type="button" class="option" data-wrong="office">Coming to meet me after office</button>
+          </div>
+          <p id="q4-feedback" class="feedback" aria-live="polite"></p>
+          <div class="lifelines" id="q4-lifelines">
+            <button type="button" class="lifeline" data-lifeline="phone">Phone a Friend</button>
+            <button type="button" class="lifeline" data-lifeline="audience">Ask the Audience</button>
+            <button type="button" class="lifeline" data-lifeline="hint">Hint</button>
+          </div>
+          <div id="q4-hint" class="hint-box hidden">Thankful.</div>
+        </div>
+
+        <!-- Q5: What I love to do with you -->
+        <div id="q5" class="question-block hidden">
+          <p class="question-text">What is that one thing that I love to do with you?</p>
+          <div class="options" role="group" aria-label="Choose one">
+            <button type="button" class="option" data-wrong="shows">Watch Shows</button>
+            <button type="button" class="option" data-wrong="boardgames">Play board games</button>
+            <button type="button" class="option" data-wrong="irritate">Irritate you</button>
+            <button type="button" class="option" data-correct="true">Be a baby</button>
+          </div>
+          <p id="q5-feedback" class="feedback" aria-live="polite"></p>
+          <div class="lifelines" id="q5-lifelines">
+            <button type="button" class="lifeline" data-lifeline="phone">Phone a Friend</button>
+            <button type="button" class="lifeline" data-lifeline="audience">Ask the Audience</button>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="cta hidden" id="quiz-done-btn">You survived. One more question. →</button>
+    </div>
+  </section>
+
+  <!-- Ask -->
+  <section id="ask" class="screen">
+    <p class="ask-line">You passed. (There was no failing.) So...</p>
+    <img src="valentine-caricature-us.png" alt="Us" class="ask-caricature">
+    <h1 class="ask-title">Will you be my Valentine?</h1>
+    <div class="ask-buttons">
+      <button type="button" class="btn-yes" id="btn-yes">Yes</button>
+      <button type="button" class="btn-no" id="btn-no">Not this year</button>
+    </div>
+  </section>
+
+  <!-- Reveal: last page -->
+  <section id="reveal" class="screen">
+    <div class="reveal-inner">
+      <div class="reveal-celebration">
+        <p class="reveal-witty">Best decision you've made today XD (And you didn't even need a lifeline.)</p>
+        <div class="reveal-gifs">
+          <img id="reveal-gif-rotate" src="https://media.tenor.com/Jxbk24m0vV4AAAAM/vibe-rabbit.gif" alt="" class="reveal-gif">
+        </div>
+      </div>
+      <div class="reveal-hero">
+        <img src="valentine-caricature-accepted.png" alt="Us — you said yes" class="reveal-caricature">
+      </div>
+      <p class="reveal-head">You said yes. Pick where we're going—capitalism cancelled my first booking, so here are the options.</p>
+      <div class="reveal-details-card">
+        <p class="reveal-options-intro">Choose one and I'll make it happen:</p>
+        <ul class="reveal-options-list">
+          <li class="reveal-option">
+            <span class="reveal-option-venue">Roxie</span>
+            <span class="reveal-option-when">14th February, 8:30 PM</span>
+            <a href="https://maps.app.goo.gl/punzU1VkiwKrGbQUA" target="_blank" rel="noopener noreferrer" class="reveal-option-link">Get directions</a>
+          </li>
+          <li class="reveal-option">
+            <span class="reveal-option-venue">Tiamo</span>
+            <span class="reveal-option-when">13th or 15th February, 8:30 PM</span>
+            <a href="https://maps.app.goo.gl/46W6qSJtE58R9fMa8" target="_blank" rel="noopener noreferrer" class="reveal-option-link">Get directions</a>
+          </li>
+          <li class="reveal-option">
+            <span class="reveal-option-venue">Seta</span>
+            <span class="reveal-option-when">13th February, 8:30 PM</span>
+            <a href="https://www.google.com/maps/search/Seta+Hilton+Bangalore+Embassy+Golf+Links" target="_blank" rel="noopener noreferrer" class="reveal-option-link">Get directions</a>
+          </li>
+          <li class="reveal-option">
+            <span class="reveal-option-venue">Klinx, Hilton</span>
+            <span class="reveal-option-when">14th February, 8:30 PM</span>
+            <a href="https://maps.app.goo.gl/qkAxMqdQRqEUY78K6" target="_blank" rel="noopener noreferrer" class="reveal-option-link">Get directions</a>
+          </li>
+          <li class="reveal-option">
+            <span class="reveal-option-venue">OIA</span>
+            <span class="reveal-option-when">14th February, 8:30 PM</span>
+            <a href="https://maps.app.goo.gl/KB4cTrB5qWxUhEyb7" target="_blank" rel="noopener noreferrer" class="reveal-option-link">Get directions</a>
+          </li>
+          <li class="reveal-option">
+            <span class="reveal-option-venue">Alchemy</span>
+            <span class="reveal-option-when">13th or 15th February, 8:30 PM</span>
+            <a href="https://maps.app.goo.gl/dkGdYogiXk3cFrmj8" target="_blank" rel="noopener noreferrer" class="reveal-option-link">Get directions</a>
+          </li>
+          <li class="reveal-option">
+            <span class="reveal-option-venue">Helen's place</span>
+            <span class="reveal-option-when">13th or 15th February, 8:30 PM</span>
+            <a href="https://maps.app.goo.gl/GP8FxnQTvisynVRc7" target="_blank" rel="noopener noreferrer" class="reveal-option-link">Get directions</a>
+          </li>
+        </ul>
+        <p class="reveal-note">Wear something nice. I already did (this website).</p>
+      </div>
+      <p class="reveal-birthday">This counts as your pre-birthday celebration too. You got lucky with me. Don't forget that ever. 🙂</p>
+      <p class="reveal-signoff">Happy Valentine's Mr Rawat. ❤️</p>
+    </div>
+  </section>
+
+  <audio id="dooron-audio" preload="auto">
+    <source src="Baby Dance Slowly Slowly  Sunil Grover  Priyanka Chopra  The Kapil Sharma Show - 9xm Stylish kinG.mp3" type="audio/mpeg">
+  </audio>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
